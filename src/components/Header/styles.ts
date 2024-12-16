@@ -27,3 +27,14 @@ export const HeaderText = styled.span`
   text-align: center; /* Centraliza o texto */
   margin-top: 16px; /* Para dar um espaçamento entre a logo e o texto */
 `
+
+export const CartInfo = styled.div`
+  background-color: ${cores.vermelho};
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+`

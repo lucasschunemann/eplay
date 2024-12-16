@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Card from '../components/Card'
 
 const Home = () => {
-  // Dados fictícios de restaurantes
+  // Dados fictícios de restaurantes com IDs adicionados
   const restaurants = [
     {
+      id: '1', // Adicionado ID exclusivo
       image: 'https://via.placeholder.com/400',
       foodType: 'Japonesa',
       isHighlight: true,
@@ -13,6 +15,7 @@ const Home = () => {
       rating: 4.5
     },
     {
+      id: '2',
       image: 'https://via.placeholder.com/400',
       foodType: 'Italiana',
       isHighlight: false,
@@ -21,6 +24,7 @@ const Home = () => {
       rating: 4.2
     },
     {
+      id: '3',
       image: 'https://via.placeholder.com/400',
       foodType: 'Brasileira',
       isHighlight: true,
@@ -29,6 +33,7 @@ const Home = () => {
       rating: 4.8
     },
     {
+      id: '4',
       image: 'https://via.placeholder.com/400',
       foodType: 'Vegana',
       isHighlight: false,
@@ -37,6 +42,7 @@ const Home = () => {
       rating: 4.3
     },
     {
+      id: '5',
       image: 'https://via.placeholder.com/400',
       foodType: 'Chinesa',
       isHighlight: true,
@@ -45,6 +51,7 @@ const Home = () => {
       rating: 4.7
     },
     {
+      id: '6',
       image: 'https://via.placeholder.com/400',
       foodType: 'Mexicana',
       isHighlight: false,
@@ -64,8 +71,14 @@ const Home = () => {
         padding: '20px'
       }}
     >
-      {restaurants.map((restaurant, index) => (
-        <Card key={index} {...restaurant} />
+      {restaurants.map((restaurant) => (
+        <Link
+          to={`/restaurant/${restaurant.id}`}
+          key={restaurant.id}
+          style={{ textDecoration: 'none' }}
+        >
+          <Card {...restaurant} />
+        </Link>
       ))}
     </div>
   )

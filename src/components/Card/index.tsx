@@ -1,9 +1,10 @@
-// src/components/RestaurantCard.tsx
 import React from 'react'
+import { Link } from 'react-router-dom' // Importa o Link para navegação
 import Tag from '../Tag'
 import styled from 'styled-components'
 
 interface RestaurantCardProps {
+  id: string
   image: string
   foodType: string
   isHighlight: boolean
@@ -13,7 +14,7 @@ interface RestaurantCardProps {
 }
 
 const CardContainer = styled.div`
-  width: 350px; /* Aumentado a largura para um visual mais espaçoso */
+  width: 350px;
   padding: 20px;
   margin: 20px;
   background-color: #fff;
@@ -67,11 +68,13 @@ const RatingNumber = styled.span`
   color: #888;
 `
 
-const Button = styled.button`
+const Button = styled(Link)`
+  /* Usa Link para navegação */
   padding: 12px 24px;
   font-size: 14px;
   background-color: #ff5722;
   color: white;
+  text-decoration: none; /* Remove sublinhado do link */
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -83,6 +86,7 @@ const Button = styled.button`
 `
 
 const RestaurantCard: React.FC<RestaurantCardProps> = ({
+  id, // Recebe o ID do restaurante
   image,
   foodType,
   isHighlight,
@@ -99,7 +103,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
       <RatingStars>★</RatingStars>
       <RatingNumber>{rating}/5</RatingNumber>
     </Rating>
-    <Button>Saiba mais</Button>
   </CardContainer>
 )
 
